@@ -125,7 +125,9 @@ class _HomePageState extends State<HomePage> {
                               color: Colors.green,
                               // onPressed: () => addIntendation(),
                               onPressed: () {
-                                log(snapshot.data.toString());
+                                log(snapshot.data
+                                    .toString()
+                                    .replaceFirst('len(X)', 'len(X)-100'));
                               },
                               child: Icon(
                                 Icons.arrow_right_alt,
@@ -150,6 +152,7 @@ class _HomePageState extends State<HomePage> {
                                 // {
                                 // "textOutputOrError" : output of the code / error generated while running the code
                                 // }
+
                                 final _result = await Chaquopy.executeCode(
                                     snapshot.data.toString());
                                 setState(() {
